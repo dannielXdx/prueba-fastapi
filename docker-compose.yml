@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=sqlite:///./test.db
+
+  test:
+    build:
+      context: .
+    command: ["pytest", "--maxfail=1", "--disable-warnings", "-v"]
+    volumes:
+      - .:/app
+      - ./tests:/tests
+    environment:
+      - DATABASE_URL=sqlite:///./test.db

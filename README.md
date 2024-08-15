@@ -7,12 +7,14 @@ Este proyecto es un microservicio de autenticación desarrollado con **FastAPI**
 ## Estrategia de Desarrollo
 
 ### 1. **Tecnologías Utilizadas**
-   - **FastAPI**: Framework web moderno y de alto rendimiento para construir APIs con Python 3.9+.
+   - **FastAPI**: Framework web moderno y de alto rendimiento para construir APIs con Python 3.10+.
    - **SQLite**: Base de datos liviana utilizada para almacenar los datos de los usuarios.
    - **SQLAlchemy**: ORM (Object-Relational Mapping) para interactuar con la base de datos de manera más eficiente.
    - **JWT (JSON Web Tokens)**: Utilizado para la autenticación segura de los usuarios.
    - **bcrypt**: Algoritmo de hashing de contraseñas para almacenar contraseñas de forma segura.
    - **pytest**: Framework de pruebas utilizado para las pruebas unitarias del proyecto.
+   - **Docker**: Entorno para correr el proyecto de forma estandarizada con contenedores.
+
 
 
 ### 2. **Pasos de Implementación**

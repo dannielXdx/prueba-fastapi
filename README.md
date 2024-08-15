@@ -40,7 +40,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-3. Genera un SECRET_KEY y agregalo a la variable del `.env`. El siguiente comando es una sugerencia para generarlo:
+3. (OPCIONAL) Genera un SECRET_KEY y agregalo a la variable del `.env`. El siguiente comando es una sugerencia para generarlo:
 ```bash
 python -c "import secrets; print(secrets.token_hex(32))"
 ```
@@ -55,7 +55,17 @@ fastapi dev app/main.py
 
 ## Ejecución del proyecto con Docker
 
-Para desplegar el contenedor, usa el siguiente comando:
+1. Crea el archivo `.env` tomando como referencia el `.env.example`.
+```bash
+cp .env.example .env
+```
+
+2. (OPCIONAL) Genera un SECRET_KEY y agregalo a la variable del `.env`. El siguiente comando es una sugerencia para generarlo:
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+3. Para desplegar el contenedor, usa el siguiente comando:
 
 ```bash
 docker-compose up --build

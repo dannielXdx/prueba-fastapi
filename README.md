@@ -27,7 +27,7 @@ Este proyecto es un microservicio de autenticación desarrollado con **FastAPI**
 - **Pruebas Unitarias**: Se añadieron pruebas unitarias utilizando `pytest` para verificar la funcionalidad de los endpoints clave del sistema. Las pruebas cubren los casos de registro, inicio de sesión, verificación de token, refresh token y logout.
 
 
-## Ejecución del Proyecto en local
+## Ejecución del proyecto en local
 
 1. Instala las dependencias en un entorno virtual con los comandos:
 ```bash
@@ -35,11 +35,32 @@ python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 ```
+2. Crea el archivo `.env` tomando como referencia el `.env.example`.
+```bash
+cp .env.example .env
+```
 
-2. Despliega del servicio en modo desarrollo con el comando:
+3. Genera un SECRET_KEY y agregalo a la variable del `.env`. El siguiente comando es una sugerencia para generarlo:
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+4. Despliega del servicio en modo desarrollo con el comando:
 ```bash
 fastapi dev app/main.py
 ```
+
+5. Puedes consultar la documentación de las APIs en http://127.0.0.1:8000/docs/ para comenzar a usarlas.
+
+
+## Ejecución del proyecto con Docker
+
+Para desplegar el contenedor, usa el siguiente comando:
+
+```bash
+docker-compose up --build
+```
+Este mismo ejecuta los test antes de levantar el servidor, aunque también se pueden correr los test de forma independiente.
 
 ## Ejecución de pruebas
 
@@ -47,4 +68,10 @@ Las pruebas unitarias están diseñadas para garantizar que los endpoints funcio
 
 ```bash
 pytest
+```
+
+También se puede ejecutar una rutina dentro del contenedor para ejecutar los test con el siguiente comando:
+
+```bash
+docker-compose run test
 ```
